@@ -14,52 +14,20 @@
         <!-- start jtinder container -->
         <div id="tinderslide">
             <ul>
-                <li class="pane" id="1">
+                {% for car in cars %}
+
+                <li class="pane" id="{{ car.id }}">
                     <div class="img" style="
                     background: no-repeat scroll center center
-                    url(https://storage.mds.yandex.net/get-taximeter/918663/7351e1d274664a43aa4ef3ab0f4013b0.jpg);
+                    url( {{ car.image_url }} );
                     background-size: cover;">
 
                     </div>
-                    <div>Miami Beach</div>
+                    <div>{{car.defect}}</div>
                     <div class="like"></div>
                     <div class="dislike"></div>
                 </li>
-                <li class="pane" id="2">
-                    <div class="img" style="
-                    background: no-repeat scroll center center
-                    url(https://storage.mds.yandex.net/get-taximeter/759543/443f8710a3c146cf995f7d67f453281e.jpg);
-                    background-size: cover;">
-
-                    </div>
-                    <div>San Francisco</div>
-                    <div class="like"></div>
-                    <div class="dislike"></div>
-                </li>
-                <li class="pane" id="3">
-                    <div class="img" style="
-                    background: no-repeat scroll center center
-                    url(https://storage.mds.yandex.net/get-taximeter/925941/fd5c3bd0189d4b6681ef660cbdafdaca.jpg);
-                    background-size: cover;">
-
-                    </div>
-
-                    <div>Chicago</div>
-                    <div class="like"></div>
-                    <div class="dislike"></div>
-                </li>
-                <li class="pane" id="4">
-                    <div class="img" style="
-                    background: no-repeat scroll center center
-                    url(https://storage.mds.yandex.net/get-taximeter/361841/2d2758eac4bb4e33a9267c5c5a8cc766.jpg);
-                    background-size: cover;">
-
-                    </div>
-
-                    <div>New York</div>
-                    <div class="like"></div>
-                    <div class="dislike"></div>
-                </li>
+                {% endfor %}
 
             </ul>
         </div>

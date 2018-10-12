@@ -25,7 +25,8 @@ def dkk(request, user):
     if not User.objects.filter(login=user).exists():
         return redirect('index')
 
-    return render(request, 'tinder/index.html')
+    cars = Car.objects.all()
+    return render(request, 'tinder/index.html', {'cars': cars})
 
 
 def thankyou(request, user):

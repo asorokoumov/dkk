@@ -10,6 +10,7 @@ from django.utils import timezone
 
 class Car(models.Model):
     image_url = models.CharField(max_length=200)
+    defect = models.CharField(max_length=200)
 
 
 class User(models.Model):
