@@ -4,6 +4,7 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+    url(r'^upload_cars/$', views.upload_cars, name='upload_cars'),
     url(r'^(?P<user>[-\w]+)/$', views.dkk, name='dkk'),
     url(r'^(?P<user>[-\w]+)/thankyou/$', views.thankyou, name='thankyou'),
     url(r'^(?P<user>[-\w]+)/like/(?P<car>[-\w]+)/$', views.like, name='like'),
