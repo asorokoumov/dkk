@@ -25,7 +25,7 @@ SECRET_KEY = '*l+yu4xs*kln!3)e1m0q9--v-3@os)wo513dvy%ncx@g+73e2s'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-+ALLOWED_HOSTS = ['qualitycheck.pythonanywhere.com']
+ALLOWED_HOSTS = ['qualitycheck.pythonanywhere.com']
 
 # Application definition
 
