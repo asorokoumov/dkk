@@ -38,7 +38,7 @@ def result(request):
     result = []
     for car in cars:
         total = QualityCheck.objects.filter(car=car).count()
-        passed = QualityCheck.objects.filter(car=car, resolution=True).count()
+        passed = QualityCheck.objects.filter(car=car, resolution=False).count()
         result.append([car, float(passed)/float(total)*100, 100-float(passed)/float(total)*100, passed, total-passed])
     return render(request, 'tinder/result.html', {'result': result})
 

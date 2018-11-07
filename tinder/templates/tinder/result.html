@@ -29,12 +29,12 @@
 
           <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" aria-valuenow="40"
           aria-valuemin="0" aria-valuemax="100" style="width:{{car_result.2}}%">
-            {{car_result.2}}% ({{car_result.4}})
+            {{car_result.2|floatformat}}% ({{car_result.4}})
           </div>
 
           <div class="progress-bar progress-bar-striped bg-success" role="progressbar" aria-valuenow="40"
           aria-valuemin="0" aria-valuemax="100" style="width:{{car_result.1}}%">
-            {{car_result.1}}% ({{car_result.3}})
+            {{car_result.1|floatformat}}% ({{car_result.3}})
           </div>
 
         </div>
