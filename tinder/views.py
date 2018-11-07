@@ -29,9 +29,22 @@ def dkk(request, user):
     return render(request, 'tinder/index.html', {'cars': cars})
 
 
+def result(request):
+    quality_checks = QualityCheck.objects.all()
+    cars = []
+    for qc in quality_checks:
+        if qc.car not in cars:
+            cars.append(qc.car)
+    result = []
+    for car in cars:
+        total = QualityCheck.objects.filter(car=car).count()
+        passed = QualityCheck.objects.filter(car=car, resolution=True).count()
+        result.append([car, float(passed)/float(total)*100, 100-float(passed)/float(total)*100, passed, total-passed])
+    return render(request, 'tinder/result.html', {'result': result})
+
+
 def thankyou(request, user):
     return render(request, 'tinder/thankyou.html')
-
 
 def like(request, user, car):
     car = Car.objects.get(id=car)
