@@ -12,6 +12,11 @@ class Car(models.Model):
     image_url = models.CharField(max_length=200)
     defect = models.CharField(max_length=200)
     details = models.CharField(max_length=200)
+    region = models.CharField(max_length=200)
+    tariff = models.CharField(max_length=200)
+    assessor_resolution = models.CharField(max_length=200)
+
+
 
 
 class User(models.Model):
@@ -24,7 +29,8 @@ class User(models.Model):
 class QualityCheck(models.Model):
     user = models.CharField(max_length=200)
     car = models.ForeignKey(Car)
-    resolution = models.BooleanField()
+    resolution = models.BooleanField() #false = passed
+
     created_date = models.DateTimeField(
         default=timezone.now)
 

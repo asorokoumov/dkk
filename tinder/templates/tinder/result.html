@@ -15,7 +15,10 @@
   <thead   class="thead-light">
     <tr>
       <th scope="col">Image</th>
-      <th scope="col" style="width:50%">Result</th>
+      <th scope="col" style="width:30%">Result</th>
+      <th scope="col" style="width:5%">Tariff</th>
+      <th scope="col" style="width:5%">Region</th>
+      <th scope="col" style="width:5%">Assessor</th>
 
     </tr>
   </thead>
@@ -39,6 +42,10 @@
 
         </div>
       </td>
+      <td>{{car_result.0.region}}</td>
+      <td>{{car_result.0.tariff}}</td>
+      <td>{{car_result.0.assessor_resolution}}</td>
+
     </tr>
 {% endfor %}
 

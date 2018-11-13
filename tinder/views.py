@@ -14,7 +14,7 @@ def index(request):
         if not User.objects.filter(login=login).exists():
             user = User(login=login)
             user.save()
-            return redirect('dkk', user)
+            return redirect('dkk2', user)
         else:
             return render(request, 'tinder/login.html', {'login_error': 'Похоже, вы уже проходили опрос'})
     else:
@@ -27,6 +27,35 @@ def dkk(request, user):
 
     cars = Car.objects.all()
     return render(request, 'tinder/index.html', {'cars': cars})
+
+
+def dkk2(request, user):
+
+    if not User.objects.filter(login=user).exists():
+        return redirect('index')
+    else:
+        user = User.objects.get(login=user)
+    if request.method == "POST":
+        car = Car.objects.get(id=request.POST.get('car_id', ''))
+        if 'bad' in request.POST:
+            quality_check = QualityCheck(user=user, car=car, resolution=True)
+            quality_check.save()
+        elif 'good' in request.POST:
+            quality_check = QualityCheck(user=user, car=car, resolution=False)
+            quality_check.save()
+        cars_all = Car.objects.all()
+        user_qcs = QualityCheck.objects.filter(user=user)
+        cars_left = cars_all
+        for user_qc in user_qcs:
+            cars_left = cars_left.exclude(id=user_qc.car.id)
+        car = cars_left.order_by('?').first()
+        if cars_left.count() == 0:
+            return redirect('thankyou', user)
+    else:
+        car = Car.objects.order_by('?').first()
+    return render(request, 'tinder/index2.html', {'car': car})
+
+
 
 
 def result(request):
