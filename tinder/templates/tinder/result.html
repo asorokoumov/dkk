@@ -9,16 +9,19 @@
 <body>
 
 <br>
-<div class="container">
 
 <table class="table">
   <thead   class="thead-light">
     <tr>
-      <th scope="col">Image</th>
+      <th scope="col">Back</th>
+      <th scope="col">Front</th>
+      <th scope="col">Left</th>
+      <th scope="col">Right</th>
       <th scope="col" style="width:30%">Result</th>
-      <th scope="col" style="width:5%">Tariff</th>
-      <th scope="col" style="width:5%">Region</th>
-      <th scope="col" style="width:5%">Assessor</th>
+      <th scope="col" >Tariff</th>
+      <th scope="col" >Region</th>
+      <th scope="col" >Assessor</th>
+      <th scope="col" >Comment</th>
 
     </tr>
   </thead>
@@ -26,7 +29,10 @@
     {% for car_result in result %}
 
     <tr>
-        <td><img  style="width:100%" src="{{car_result.0.image_url}}"></td>
+        <td><a href="{{car_result.0.image_url}}" target="_blank"> <img style="width:100%" src="{{car_result.0.image_url}}"></a></td>
+        <td><a href="{{car_result.0.image_url}}" target="_blank"> <img style="width:100%" src="{{car_result.0.image_url2}}"></a></td>
+        <td><a href="{{car_result.0.image_url}}" target="_blank"> <img style="width:100%" src="{{car_result.0.image_url3}}"></a></td>
+        <td><a href="{{car_result.0.image_url}}" target="_blank"> <img style="width:100%" src="{{car_result.0.image_url4}}"></a></td>
       <td>
           <div class="progress">
 
@@ -45,6 +51,7 @@
       <td>{{car_result.0.region}}</td>
       <td>{{car_result.0.tariff}}</td>
       <td>{{car_result.0.assessor_resolution}}</td>
+      <td>{{car_result.0.details}}</td>
 
     </tr>
 {% endfor %}
@@ -52,7 +59,6 @@
   </tbody>
 </table>
 
-    </div>
 
 
 

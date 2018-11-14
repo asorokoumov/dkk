@@ -10,6 +10,9 @@ from django.utils import timezone
 
 class Car(models.Model):
     image_url = models.CharField(max_length=200)
+    image_url2 = models.CharField(max_length=200)
+    image_url3 = models.CharField(max_length=200)
+    image_url4 = models.CharField(max_length=200)
     defect = models.CharField(max_length=200)
     details = models.CharField(max_length=200)
     region = models.CharField(max_length=200)
