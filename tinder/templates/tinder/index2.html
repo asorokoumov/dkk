@@ -10,6 +10,15 @@
 
 <div class="container">
 
+      <div class="row  vcenter  ">
+
+	    <div class="col-md-12">
+	      <h3 class="text-center">
+	        {{ car.tariff }}, {{ car.region }}
+	      </h3>
+	    </div>
+
+  </div>
 
   <div class="row vcenter" style="padding-top: 0px">
 
@@ -41,15 +50,7 @@
   </div>
 
 
-  	<div class="row  vcenter  ">
 
-	    <div class="col-md-12">
-	      <h3 class="text-center">
-	        {{ car.tariff }}, {{ car.region }}
-	      </h3>
-	    </div>
-
-  </div>
 <form  action="" method="post">
     {% csrf_token %}
     <input type="hidden" name="car_id" value="{{car.id}}">
